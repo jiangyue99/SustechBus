@@ -1,2 +1,24 @@
 <!--pages/sustc-bus.wxml-->
-<text>pages/sustc-bus.wxml</text>
+<h1>南科大班车</h1>
+<div class="first-line-bus line">
+  欣园--工学院
+  <view wx:for="{{ line_1_time }}" wx:key="index">{{ item }}</view>
+  工学院--欣园
+  <view wx:for="{{ line_1_time_reverse }}" wx:key="index">{{ item }}</view>
+</div>
+<div class="holiday-line-bus line">
+  欣园--工学院
+  <view wx:for="{{ line_1_holiday }}" wx:key="index">{{ item }}</view>
+  工学院--欣园
+  <view wx:for="{{ line_1_holiday_reverse }}" wx:key="index">{{ item }}</view>
+</div>
+<div class="second-line-bus line">
+  欣园--科研楼
+  <view wx:for="{{ line_2_time }}" wx:key="index">{{ item }}</view>
+  科研楼--欣园
+  <view wx:for="{{ line_2_time_reverse }}" wx:key="index">{{ item }}</view>
+</div>
+<div class="zhiyuan-line-bus line">
+  智园--教师食堂
+  <view wx:for="{{ line_Zhiyuan }}" wx:key="index">{{ item }}</view>
+</div>
