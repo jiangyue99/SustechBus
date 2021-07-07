@@ -33,7 +33,3 @@
   border-radius: 4px;
 }
 
-view {
-  background-color: inherit;
-}
-
