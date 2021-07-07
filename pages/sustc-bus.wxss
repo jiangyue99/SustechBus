@@ -6,28 +6,30 @@
   background-color: rgb(47, 110, 247);
 }
 #page h1 {
-  text-align: left;
+  align-self: flex-start;
 }
-.line-name {
-  margin: 1%;
-  padding: 2%; 
-  border-bottom: dotted 1px gray;
-}
+
 .line {
   display: inline-flex;
   flex-direction: column;
   width: 80%;
   background-color: rgb(230, 236, 174);
+  margin: 1%;
+  padding: 2%;
+  border-radius: 0.5em;
 }
 
-.bus-line {
+.line-name {
+  margin: 1%;
+  padding: 0 2% 2%; 
+  border-bottom: dotted 1px gray;
+}
+
+
+.weekday-bus-line {
   position: relative;
   margin: 5px;
   width: 80%;
   border-radius: 4px;
-}
-
-view {
-  background-color: inherit;
 }
 
