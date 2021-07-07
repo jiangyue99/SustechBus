@@ -1,1 +1,33 @@
 /* pages/sustc-bus.wxss */
+#page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(47, 110, 247);
+}
+#page h1 {
+  text-align: left;
+}
+.line-name {
+  margin: 1%;
+  padding: 2%; 
+  border-bottom: dotted 1px gray;
+}
+.line {
+  display: inline-flex;
+  flex-direction: column;
+  width: 80%;
+  background-color: rgb(230, 236, 174);
+}
+
+.bus-line {
+  position: relative;
+  margin: 5px;
+  width: 80%;
+  border-radius: 4px;
+}
+
+view {
+  background-color: inherit;
+}
+
