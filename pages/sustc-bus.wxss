@@ -12,7 +12,7 @@
 .line {
   display: inline-flex;
   flex-direction: column;
-  width: 80%;
+  width: 70%;
   background-color: rgb(230, 236, 174);
   margin: 1%;
   padding: 2%;

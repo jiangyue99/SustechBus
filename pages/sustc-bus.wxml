@@ -1,41 +1,40 @@
 <!--pages/sustc-bus.wxml-->
 <div id="page">
   <h1>南科大班车</h1>
-
   <div class="first-line-bus line">
     <h2 class="line-name">欣园>>工学院</h2>
-    <block wx:for="{{ line_1_time }}" wx:key="index">
-      <view class="weekday-bus-line">{{ item }}</view>
+    <block wx:if="{{ is_holiday == false }}" wx:for="{{ line_1_time }}" wx:key="index">
+      <view class="weekday-line-bus">{{ item }}</view>
     </block>
-    <block wx:for="{{ line_1_holiday }}" wx:key="index">
-      <view class="holiday-bus-line">{{ item }}</view>
+    <block wx:if="{{ is_holiday }}" wx:for="{{ line_1_holiday }}" wx:key="index">
+      <view class="holiday-line-bus">{{ item }}</view>
     </block>
   </div> 
 
   <div class="first-line-reverse-bus line">
     <h2 class="line-name">工学院--欣园</h2>
-    <block wx:for="{{ line_1_time_reverse }}" wx:key="index">
-      <view class="weekday-bus-line">{{ item }}</view>
+    <block wx:if="{{ is_holiday == false }}" wx:for="{{ line_1_time_reverse }}" wx:key="index">
+      <view class="weekday-line-bus">{{ item }}</view>
     </block>
-    <block wx:for="{{ line_1_holiday_reverse }}" wx:key="index">
-      <view class="holiday-bus-line">{{ item }}</view>
+    <block wx:if="{{ is_holiday }}" wx:for="{{ line_1_holiday_reverse }}" wx:key="index">
+      <view class="holiday-line-bus">{{ item }}</view>
     </block>
   </div>
 
   <div class="second-line-bus line">
-    <h2 class="line-name">欣园--科研楼</h2>
+    <h2 wx:if="{{ is_holiday == false }}" class="line-name">欣园--科研楼</h2>
     <block wx:for="{{ line_2_time }}" wx:key="index">
       <view>{{ item }}</view>
     </block>
     <h2 class="line-name">科研楼--欣园</h2>
-    <block wx:for="{{ line_2_time_reverse }}" wx:key="index">
+    <block wx:if="{{ is_holiday == false }}" wx:for="{{ line_2_time_reverse }}" wx:key="index">
       <view>{{ item }}</view>
     </block>
   </div>
 
   <div class="zhiyuan-line-bus line">
     <h2 class="line-name">智园--教师食堂</h2>
-    <block wx:for="{{ line_Zhiyuan }}" wx:key="index">
+    <block wx:if="{{ is_holiday == false }}" wx:for="{{ line_Zhiyuan }}" wx:key="index">
       <view>{{ item }}</view>
     </block>
   </div>

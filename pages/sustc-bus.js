@@ -52,7 +52,8 @@ Page({
     line_2_time_reverse: [],
     line_1_holiday: [],
     line_1_holiday_reverse: [],
-    line_Zhiyuan: []
+    line_Zhiyuan: [],
+    is_holiday: false
   },
 
   /**
