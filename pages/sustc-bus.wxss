@@ -3,10 +3,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(47, 110, 247);
+  background-color: rgb(228, 141, 60);
 }
 #page h1 {
   align-self: flex-start;
+  padding: 4%;
 }
 
 .line {
@@ -26,10 +27,9 @@
 }
 
 
-.weekday-bus-line {
+.line-weekday {
   position: relative;
   margin: 5px;
   width: 80%;
-  border-radius: 4px;
 }
 

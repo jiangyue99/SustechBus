@@ -3,39 +3,51 @@
   <h1>南科大班车</h1>
   <div class="first-line-bus line">
     <h2 class="line-name">欣园>>工学院</h2>
-    <block wx:if="{{ is_holiday == false }}" wx:for="{{ line_1_time }}" wx:key="index">
-      <view class="weekday-line-bus">{{ item }}</view>
+    <block wx:if="{{ is_holiday == false }}">
+      <view class="afterRun-weekday-line-bus line-weekday" wx:for="{{ line_1_weekday.afterRun }}" wx:key="index">{{ item }}</view>
+      <view class="running-weekday-line-bus line-weekday" wx:for="{{ line_1_weekday.running }}" wx:key="index">{{ item }}</view>
+      <view class="preRun-weekday-line-bus line-weekday" wx:for="{{ line_1_weekday.preRun }}" wx:key="index">{{ item }}</view>
     </block>
-    <block wx:if="{{ is_holiday }}" wx:for="{{ line_1_holiday }}" wx:key="index">
-      <view class="holiday-line-bus">{{ item }}</view>
+    <block wx:if="{{ is_holiday }}">
+      <view class="afterRun-weekday-line-bus line-weekday" wx:for="{{ line_1_holiday.afterRun }}" wx:key="index">{{ item }}</view>
+      <view class="running-weekday-line-bus line-weekday" wx:for="{{ line_1_holiday.running }}" wx:key="index">{{ item }}</view>
+      <view class="preRun-weekday-line-bus line-weekday" wx:for="{{ line_1_holiday.preRun }}" wx:key="index">{{ item }}</view>
     </block>
   </div> 
 
   <div class="first-line-reverse-bus line">
     <h2 class="line-name">工学院--欣园</h2>
-    <block wx:if="{{ is_holiday == false }}" wx:for="{{ line_1_time_reverse }}" wx:key="index">
-      <view class="weekday-line-bus">{{ item }}</view>
+    <block wx:if="{{ is_holiday == false }}">
+      <view class="afterRun-weekday-line-bus line-weekday" wx:for="{{ line_1_weekday_reverse.afterRun }}" wx:key="index">{{ item }}</view>
+      <view class="running-weekday-line-bus line-weekday" wx:for="{{ line_1_weekday_reverse.running }}" wx:key="index">{{ item }}</view>
+      <view class="preRun-weekday-line-bus line-weekday" wx:for="{{ line_1_weekday_reverse.preRun }}" wx:key="index">{{ item }}</view>
     </block>
-    <block wx:if="{{ is_holiday }}" wx:for="{{ line_1_holiday_reverse }}" wx:key="index">
-      <view class="holiday-line-bus">{{ item }}</view>
+    <block wx:if="{{ is_holiday }}">
+      <view class="afterRun-weekday-line-bus line-weekday" wx:for="{{ line_1_holiday_reverse.afterRun }}" wx:key="index">{{ item }}</view>
+      <view class="running-weekday-line-bus line-weekday" wx:for="{{ line_1_holiday_reverse.running }}" wx:key="index">{{ item }}</view>
+      <view class="preRun-weekday-line-bus line-weekday" wx:for="{{ line_1_holiday_reverse.preRun }}" wx:key="index">{{ item }}</view>
     </block>
   </div>
 
   <div class="second-line-bus line">
     <h2 wx:if="{{ is_holiday == false }}" class="line-name">欣园--科研楼</h2>
-    <block wx:for="{{ line_2_time }}" wx:key="index">
-      <view>{{ item }}</view>
+    <block wx:if="{{ is_holiday == false }}">
+      <view class="afterRun-weekday-line-bus line-weekday" wx:for="{{ line_2_weekday.afterRun }}" wx:key="index">{{ item }}</view>
+      <view class="running-weekday-line-bus line-weekday" wx:for="{{ line_2_weekday.running }}" wx:key="index">{{ item }}</view>
+      <view class="preRun-weekday-line-bus line-weekday" wx:for="{{ line_2_weekday.preRun }}" wx:key="index">{{ item }}</view>
     </block>
-    <h2 class="line-name">科研楼--欣园</h2>
-    <block wx:if="{{ is_holiday == false }}" wx:for="{{ line_2_time_reverse }}" wx:key="index">
-      <view>{{ item }}</view>
+    <h2 wx:if="{{ is_holiday == false }}" class="line-name">科研楼--欣园</h2>
+    <block wx:if="{{ is_holiday == false }}">
+      <view class="afterRun-weekday-line-bus line-weekday" wx:for="{{ line_2_weekday_reverse.afterRun }}" wx:key="index">{{ item }}</view>
+      <view class="running-weekday-line-bus line-weekday" wx:for="{{ line_2_weekday_reverse.running }}" wx:key="index">{{ item }}</view>
+      <view class="preRun-weekday-line-bus line-weekday" wx:for="{{ line_2_weekday_reverse.preRun }}" wx:key="index">{{ item }}</view>
     </block>
   </div>
 
   <div class="zhiyuan-line-bus line">
     <h2 class="line-name">智园--教师食堂</h2>
     <block wx:if="{{ is_holiday == false }}" wx:for="{{ line_Zhiyuan }}" wx:key="index">
-      <view>{{ item }}</view>
+      <view class="line-weekday">{{ item }}</view>
     </block>
   </div>
 </div>
