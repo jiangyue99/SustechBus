@@ -98,7 +98,8 @@ Page({
       line_2_weekday_reverse: this.getSuitableTime(this.data.line_2_weekday_reverse_Str, this.data.duraOfLine2),
       line_1_holiday: this.getSuitableTime(this.data.line_1_holiday_Str, this.data.duraOfLine1),
       line_1_holiday_reverse: this.getSuitableTime(this.data.line_1_holiday_reverse_Str, this.data.duraOfLine1),
-      line_Zhiyuan: this.getSuitableTime(this.data.line_Zhiyuan_Str, this.data.duraOfLineZhi)
+      line_Zhiyuan: this.getSuitableTime(this.data.line_Zhiyuan_Str, this.data.duraOfLineZhi),
+      is_holiday: this.judgeHoliday()
     });
   },
   /**
@@ -120,9 +121,9 @@ Page({
     }
     // 查找当前时间将出发的班车时刻
     let startIndex = 0,
-        endIndex = timetable.length - 1;
-    let startRun, 
-        startRerun;
+        endIndex = timetable.length;
+    let startRun = 0, 
+        startRerun = timetable.length;
     while (startIndex < endIndex) {
       // 第一次班车时刻表时间+运行时间>当前时间，此时运行状态的第一个bus
       // 第一次班车时刻表时间>当前时间时，这时的班车是将出发状态
@@ -137,6 +138,10 @@ Page({
             break;
           }
           startIndex++;
+          if (startIndex == timetable.length) {
+            startRerun++;
+            break;
+          }
         }
         break;
       }
@@ -145,11 +150,41 @@ Page({
         return timetableDic;
       }
     }
-    timetableDic.afterRun = [timetable[startRun-1]];
-    timetableDic.running = timetable.slice(startRun, startRerun-1);
+    if (startRun == 0) {
+      timetableDic.afterRun = [];
+    } else {
+      timetableDic.afterRun = [timetable[startRun-1]];
+    }
+    timetableDic.running = timetable.slice(startRun, startRerun);
     timetableDic.preRun = timetable.slice(startRerun, startRerun+4);
     return timetableDic;
   },
+
+  /**
+   * 判断是否节假日
+   */
+  judgeHoliday: function() {
+    // 假期
+    let holiday = `2/11 2/12 2/15 2/16 2/17 4/5 5/3 5/4 5/5 6/14 9/20 9/21 10/1 10/4 10/5 10/6 10/7`.split('');
+    // 调休时间
+    let weekendToWeekday = `4/25 5/8 9/18 9/26 10/9`.split(' ');
+    let locTime = new Date();
+    let locMonth = locTime.getMonth(),
+        locDate = locTime.getDate(),
+        locWeek = locTime.getDay();
+    let locDay = String(locMonth) + '/' + String(locDate);
+    if (locWeek == 0 || locWeek == 6) {
+      if (locDay in weekendToWeekday) {
+        return false;
+      }
+      return true;
+    }
+    if (locDay in holiday) {
+      return true;
+    }
+    return false;
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   background-color: rgb(228, 141, 60);
+  padding-bottom: 10%;
 }
 #page h1 {
   align-self: flex-start;
