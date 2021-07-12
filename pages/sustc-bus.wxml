@@ -1,42 +1,78 @@
 <!--pages/sustc-bus.wxml-->
 <div id="page">
   <h1>南科大班车</h1>
-
   <div class="first-line-bus line">
-    <h2 class="line-name">欣园>>工学院</h2>
-    <block wx:for="{{ line_1_time }}" wx:key="index">
-      <view class="weekday-bus-line">{{ item }}</view>
+    <h2 class="line-number">校园1号线</h2>
+    <h3 class="line-name">欣园>>工学院</h3>
+    <block wx:if="{{ is_holiday == false }}">
+    <block wx:if="{{ line_1_weekday.preRun.length !== 0 || line_1_weekday.running.length !== 0 }}">
+      <view class="afterRun-line-bus line-weekday" wx:for="{{ line_1_weekday.afterRun }}" wx:key="index">{{ item }}</view>
+      <view class="running-line-bus line-weekday" wx:for="{{ line_1_weekday.running }}" wx:key="index">{{ item }}</view>
+      <view class="preRun-line-bus line-weekday" wx:for="{{ line_1_weekday.preRun }}" wx:key="index">{{ item }}</view>
     </block>
-    <block wx:for="{{ line_1_holiday }}" wx:key="index">
-      <view class="holiday-bus-line">{{ item }}</view>
+      <text wx:if="{{ line_1_weekday.preRun.length === 0 && line_1_weekday.running.length === 0 }}">今日班次已全部发出</text>
     </block>
-  </div> 
 
-  <div class="first-line-reverse-bus line">
-    <h2 class="line-name">工学院--欣园</h2>
-    <block wx:for="{{ line_1_time_reverse }}" wx:key="index">
-      <view class="weekday-bus-line">{{ item }}</view>
+    <block wx:if="{{ is_holiday }}">
+    <block wx:if="{{ line_1_holiday.preRun.length !== 0 || line_1_holiday.running.length !== 0 }}">
+      <view class="afterRun-line-bus line-holiday" wx:for="{{ line_1_holiday.afterRun }}" wx:key="index">{{ item }}</view>
+      <view class="running-line-bus line-holiday" wx:for="{{ line_1_holiday.running }}" wx:key="index">{{ item }}</view>
+      <view class="preRun-line-bus line-holiday" wx:for="{{ line_1_holiday.preRun }}" wx:key="index">{{ item }}</view>
     </block>
-    <block wx:for="{{ line_1_holiday_reverse }}" wx:key="index">
-      <view class="holiday-bus-line">{{ item }}</view>
+      <text wx:if="{{ line_1_holiday.preRun.length === 0 && line_1_holiday.running.length === 0 }}">今日班次已全部发出</text>
     </block>
+ 
+    <h3 class="line-name">工学院--欣园</h3>
+    <block wx:if="{{ is_holiday == false }}">
+    <block wx:if="{{ line_1_weekday_reverse.preRun.length !== 0 || line_1_weekday_reverse.running.length !== 0 }}"> 
+      <view class="afterRun-line-bus line-weekday" wx:for="{{ line_1_weekday_reverse.afterRun }}" wx:key="index">{{ item }}</view>
+      <view class="running-line-bus line-weekday" wx:for="{{ line_1_weekday_reverse.running }}" wx:key="index">{{ item }}</view>
+      <view class="preRun-line-bus line-weekday" wx:for="{{ line_1_weekday_reverse.preRun }}" wx:key="index">{{ item }}</view>
+    </block>
+    <text wx:if="{{ line_1_weekday_reverse.preRun.length === 0 && line_1_weekday_reverse.running.length === 0 }}">今日班次已全部发出</text>
+    </block>
+
+    <block wx:if="{{ is_holiday }}">
+    <block wx:if="{{ line_1_holiday_reverse.preRun.length !== 0 || line_1_holiday_reverse.running.length !== 0 }}">
+      <view class="afterRun-line-bus line-holiday" wx:for="{{ line_1_holiday_reverse.afterRun }}" wx:key="index">{{ item }}</view>
+      <view class="running-line-bus line-holiday" wx:for="{{ line_1_holiday_reverse.running }}" wx:key="index">{{ item }}</view>
+      <view class="preRun-line-bus line-holiday" wx:for="{{ line_1_holiday_reverse.preRun }}" wx:key="index">{{ item }}</view>
+    </block>
+    <text wx:if="{{ line_1_holiday_reverse.preRun.length === 0 && line_1_holiday_reverse.running.length === 0 }}">今日班次已全部发出</text>
+    </block>
+
   </div>
 
-  <div class="second-line-bus line">
-    <h2 class="line-name">欣园--科研楼</h2>
-    <block wx:for="{{ line_2_time }}" wx:key="index">
-      <view>{{ item }}</view>
+  <div wx:if="{{ is_holiday == false }}" class="second-line-bus line">
+    <h2 class="line-number">校园2号线</h2>
+    <h3 class="line-name">欣园>>科研楼</h3>
+    <block wx:if="{{ line_2_weekday.preRun.length !== 0 || line_2_weekday.running.length !== 0 }}">
+      <view class="afterRun-line-bus line-weekday" wx:for="{{ line_2_weekday.afterRun }}" wx:key="index">{{ item }}</view>
+      <view class="running-line-bus line-weekday" wx:for="{{ line_2_weekday.running }}" wx:key="index">{{ item }}</view>
+      <view class="preRun-line-bus line-weekday" wx:for="{{ line_2_weekday.preRun }}" wx:key="index">{{ item }}</view>
     </block>
-    <h2 class="line-name">科研楼--欣园</h2>
-    <block wx:for="{{ line_2_time_reverse }}" wx:key="index">
-      <view>{{ item }}</view>
+    <text wx:if="{{ line_2_weekday.preRun.length === 0 && line_2_weekday.running.length === 0 }}">今日班次已全部发出</text>
+
+    <h3 class="line-name">科研楼>>欣园</h3>
+    <block wx:if="{{ line_2_weekday_reverse.preRun.length !== 0 || line_2_weekday_reverse.running.length !== 0 }}">
+      <view class="afterRun-line-bus line-weekday" wx:for="{{ line_2_weekday_reverse.afterRun }}" wx:key="index">{{ item }}</view>
+      <view class="running-line-bus line-weekday" wx:for="{{ line_2_weekday_reverse.running }}" wx:key="index">{{ item }}</view>
+      <view class="preRun-line-bus line-weekday" wx:for="{{ line_2_weekday_reverse.preRun }}" wx:key="index">{{ item }}</view>
+
     </block>
+    <text wx:if="{{ line_2_weekday_reverse.preRun.length === 0 && line_2_weekday_reverse.running.length === 0 }}">今日班次已全部发出</text>    
   </div>
 
-  <div class="zhiyuan-line-bus line">
-    <h2 class="line-name">智园--教师食堂</h2>
-    <block wx:for="{{ line_Zhiyuan }}" wx:key="index">
-      <view>{{ item }}</view>
+  <div wx:if="{{ is_holiday == false }}" class="zhiyuan-line-bus line">
+    <h2 class="line-number">智园线</h2>
+    <h3 class="line-name">智园--教师食堂</h3>
+    <!-- 当有预出发车或者正在运行的车时，显示bus运行情况，下面都是一样的类型 -->
+    <block  wx:if="{{ line_Zhiyuan.preRun.length !== 0 || line_Zhiyuan.running.length !== 0 }}" wx:key="index">
+      <view class="afterRun-line-bus line-weekday" wx:for="{{ line_Zhiyuan.afterRun }}" wx:key="index">{{ item }}</view>
+      <view class="running-line-bus line-weekday" wx:for="{{ line_Zhiyuan.running }}" wx:key="index">{{ item }}</view>
+      <view class="preRun-line-bus line-weekday" wx:for="{{ line_Zhiyuan.preRun }}" wx:key="index">{{ item }}</view>
     </block>
+    <!-- 当预出发车和正在运行车次都为空时，此时一天内不再有车运行 -->
+    <text wx:if="{{ line_Zhiyuan.preRun.length === 0 && line_Zhiyuan.running.length === 0 }}">今日班次已全部发出</text>
   </div>
 </div>

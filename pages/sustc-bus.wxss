@@ -3,16 +3,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(47, 110, 247);
+  background-color: rgb(228, 141, 60);
+  padding-bottom: 10%;
 }
 #page h1 {
   align-self: flex-start;
+  padding: 4%;
 }
 
 .line {
   display: inline-flex;
   flex-direction: column;
-  width: 80%;
+  width: 70%;
   background-color: rgb(230, 236, 174);
   margin: 1%;
   padding: 2%;
@@ -26,10 +28,9 @@
 }
 
 
-.weekday-bus-line {
+.line-weekday {
   position: relative;
   margin: 5px;
   width: 80%;
-  border-radius: 4px;
 }
 
